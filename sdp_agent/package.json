@@ -1,0 +1,15 @@
+{
+  "name": "sdp_agent",
+  "version": "1.0.0",
+  "description": "agent of SDP controller for SDP client and SDP Gateway",
+  "main": "sdp_agent.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "http://show4682@stash.pentasecurity.com/scm/picl/sdp_agent.git"
+  },
+  "author": "pentasecurity",
+  "license": "ISC"
+}

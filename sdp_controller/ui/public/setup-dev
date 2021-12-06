@@ -1,0 +1,12 @@
+#!/bin/bash
+
+if [ "$#" -eq "0" ]
+then
+    echo "Usage: $0 <SDPID>"
+    exit 1
+fi
+
+mkdir $1
+cd $1
+scp -r pi@192.168.2.2:/home/pi/hasiho/sdp/.$1/* .
+

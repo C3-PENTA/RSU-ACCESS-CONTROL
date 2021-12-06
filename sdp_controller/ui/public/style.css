@@ -1,0 +1,42 @@
+
+.jumbotron {
+	padding:25px 35px;
+}
+
+.jumbotron.client-box {
+	padding:15px 32px;
+	margin-top: 25px;
+	margin-bottom: 0px;
+	min-height: 110px;
+}
+
+.jumbotron.line-box {
+	padding:5px 0px 0px 0px;
+	margin-top: 25px;
+	margin-bottom: 0px;
+	min-height: 110px;
+}
+
+.jumbotron.gateway-box {
+	padding:35px 35px;
+	height: 100%;
+}
+
+.sdp-client {
+	padding-bottom:25px;
+}
+
+.progress {
+	margin-top: 10px;
+}
+
+.progress .progress-bar {
+  -webkit-animation-direction: reverse;
+     -moz-animation-direction: reverse;
+      -ms-animation-direction: reverse;
+       -o-animation-direction: reverse;
+          animation-direction: reverse;
+}
+.progress-bar {
+	width: 100%;
+}

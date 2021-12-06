@@ -1,0 +1,96 @@
+{
+	"Penta_gw": {
+		"Penta1": [{
+				"service": "http",
+				"st_time": 1519707824,
+				"en_time": 1519707828,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.23.99",
+				"source_port": 55488,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": false
+			},
+			{
+				"service": "http",
+				"st_time": 1519707667,
+				"en_time": 1519707785,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.23.99",
+				"source_port": 55478,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": false
+			},
+			{
+				"service": "http",
+				"st_time": 1519627214,
+				"en_time": 0,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.200.171",
+				"source_port": 63462,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": true
+			},
+			{
+				"service": "http",
+				"st_time": 1519707667,
+				"en_time": 1519707785,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.23.99",
+				"source_port": 55478,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": false
+			},
+			{
+				"service": "http",
+				"st_time": 1519627214,
+				"en_time": 0,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.200.171",
+				"source_port": 63462,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": true
+			}
+
+		],
+		"Penta2": [{
+				"service": "http",
+				"st_time": 1519707824,
+				"en_time": 1519707828,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.23.99",
+				"source_port": 55488,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": false
+			},
+			{
+				"service": "http",
+				"st_time": 1519707667,
+				"en_time": 1519707785,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.23.99",
+				"source_port": 55478,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": false
+			},
+			{
+				"service": "http",
+				"st_time": 1519627214,
+				"en_time": 0,
+				"protocol": "TCP",
+				"source_ip": "::ffff:192.168.200.171",
+				"source_port": 63462,
+				"destination_ip": "10.1.0.1",
+				"destination_port": 80,
+				"connected": true
+			}
+		]
+	}
+
+}

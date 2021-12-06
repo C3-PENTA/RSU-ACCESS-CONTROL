@@ -1,0 +1,165 @@
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
+events.js:137
+      throw er; // Unhandled 'error' event
+      ^
+
+Error: listen EADDRINUSE :::8080
+    at Object._errnoException (util.js:1003:13)
+    at _exceptionWithHostPort (util.js:1024:20)
+    at Server.setupListenHandle [as _listen2] (net.js:1367:14)
+    at listenInCluster (net.js:1408:12)
+    at Server.listen (net.js:1496:7)
+    at Function.listen (/home/pi/hasiho/sdp/node_modules/express/lib/application.js:618:24)
+    at Object.<anonymous> (/home/pi/hasiho/sdp/ui/restapi.js:16:5)
+    at Module._compile (module.js:660:30)
+    at Object.Module._extensions..js (module.js:671:10)
+    at Module.load (module.js:573:32)
