@@ -41,3 +41,18 @@ func generateECDSAKey(seed string) (privKey *ecdsa.PrivateKey, err error) {
 
 	return privKey, err
 }
+
+func setECDSAKey(keyBytes []byte) (*ecdsa.PrivateKey, error) {
+	if len(keyBytes) != 32 {
+		return nil, errors.New("Wrong private key size")
+	}
+	privKey := new(ecdsa.PrivateKey)
+	privKey.D = new(big.Int).SetBytes(keyBytes)
+	X, Y := c.ScalarBaseMult(keyBytes)
+	privKey.PublicKey = ecdsa.PublicKey{
+		Curve: c,
+		X:     X,
+		Y:     Y,
+	}
+	return privKey, nil
+}
