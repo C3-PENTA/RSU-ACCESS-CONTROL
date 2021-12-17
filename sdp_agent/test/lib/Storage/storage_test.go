@@ -187,3 +187,105 @@ func setUp() {
 func tearDown() {
 	// TODO: kill the HTTP server launched in setUp()
 }
+
+func TestAll(t *testing.T) {
+	setUp()
+	defer tearDown()
+
+	
+
+	op, err := getOp("unknown", "blah")
+	assert.Empty(t, op)
+	assert.Error(t, err)
+
+	
+	op, err = getOp("download", "2f2f")
+	assert.NotEmpty(t, op)
+	assert.NoError(t, err)
+	assert.Equal(t, `{"name":"download","id":"2f2f"}`, op)
+
+	authToken, err := requestToken("tester", `{ fjdska}`)
+	assert.Error(t, err)
+	assert.Nil(t, authToken)
+
+	key, err := keys.GenerateKey("tester", nil, false)
+	assert.NoError(t, err)
+
+	authToken, err = requestToken(key.Address, op)
+	assert.NoError(t, err)
+	assert.NotNil(t, authToken)
+	assert.Equal(t, testToken, string(authToken))
+
+	sig, err := signToken(*key, authToken)
+	assert.NoError(t, err)
+	assert.NotNil(t, sig)
+
+
+
+	data, err := doDownload("2f2f", authToken, key.PubKey, sig)
+	assert.NoError(t, err)
+	if err != nil {
+		fmt.Println(err)
+	}
+	assert.Equal(t, testBody, string(data))
+
+
+	op, err = getOp("upload", "ffff")
+	assert.NotEmpty(t, op)
+	assert.NoError(t, err)
+	assert.Equal(t, `{"name":"upload","hash":"ffff"}`, op)
+
+	authToken, err = requestToken(key.Address, op)
+	assert.NoError(t, err)
+	assert.NotNil(t, authToken)
+	assert.Equal(t, testToken, string(authToken))
+
+	sig, err = signToken(*key, authToken)
+	assert.NoError(t, err)
+	assert.NotNil(t, sig)
+
+	resJson, err := doUpload(key.Address, nil, authToken, key.PubKey, sig)
+	assert.NoError(t, err)
+	if err != nil {
+		fmt.Println(err)
+	}
+	var res struct {
+		Id string `json:"id"`
+	}
+	err = json.Unmarshal(resJson, &res)
+	assert.NoError(t, err)
+	id := res.Id
+	assert.Equal(t, testId, id)
+
+
+	data, err = doInspect("1f1f")
+	assert.NoError(t, err)
+	if err != nil {
+		fmt.Println(err)
+	}
+
+	assert.Equal(t, testId, id)
+
+
+	op, err = getOp("remove", "3f3f")
+	assert.NotEmpty(t, op)
+	assert.NoError(t, err)
+	assert.Equal(t, `{"name":"remove","id":"3f3f"}`, op)
+
+	authToken, err = requestToken(key.Address, op)
+	assert.NoError(t, err)
+	assert.NotNil(t, authToken)
+	assert.Equal(t, testToken, string(authToken))
+
+	sig, err = signToken(*key, authToken)
+	assert.NoError(t, err)
+	assert.NotNil(t, sig)
+
+	rsp, err := doRemove("2f2f", authToken, key.PubKey, sig)
+	assert.NoError(t, err)
+	if err != nil {
+		fmt.Println(err)
+	}
+	assert.Empty(t, rsp)
+
+}
