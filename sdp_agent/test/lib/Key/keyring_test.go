@@ -53,6 +53,15 @@ func (kr *KeyRing) ImportNewKey(username string, keyBytes []byte, passphrase []b
 	return key, kr.AddKey(username, key)
 }
 
+func (kr *KeyRing) GetKey(username string) *KeyEntry {
+	key, ok := kr.keyList[username]
+	if !ok {
+		return nil
+	}
+	return &key
+}
+
+
 func TestGenKey(t *testing.T) {
 	kr, err := GetKeyRing(testfile)
 	assert.NoError(t, err)
