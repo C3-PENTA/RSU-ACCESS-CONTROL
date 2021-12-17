@@ -16,6 +16,24 @@ type KeyRing struct {
 	keyList  map[string]KeyEntry // just a cache
 }
 
+func (kr *KeyRing) Save() error {
+	err := util.EnsureFile(kr.filePath)
+	if err != nil {
+		return err
+	}
+
+	b, err := json.Marshal(kr.keyList)
+	if err != nil {
+		return err
+	}
+
+	err = ioutil.WriteFile(kr.filePath, b, 0600)
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
 
 func TestGenKey(t *testing.T) {
 	kr, err := GetKeyRing(testfile)
