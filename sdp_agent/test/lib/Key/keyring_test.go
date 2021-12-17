@@ -61,6 +61,17 @@ func (kr *KeyRing) GetKey(username string) *KeyEntry {
 	return &key
 }
 
+func (kr *KeyRing) RemoveKey(username string) error {
+	_, ok := kr.keyList[username]
+	if !ok {
+		return errors.New("Username not found")
+	}
+
+	delete(kr.keyList, username)
+
+	return kr.Save()
+}
+
 
 func TestGenKey(t *testing.T) {
 	kr, err := GetKeyRing(testfile)
