@@ -115,7 +115,7 @@ func testHandleParcel(w http.ResponseWriter, req *http.Request) {
 	q := u.Query()
 	k := q.Get("key")
 	if len(k) > 0 {
-		
+		// inspect with url query
 		switch k {
 		case "metadata":
 			w.Write([]byte(testMeta))
@@ -126,7 +126,7 @@ func testHandleParcel(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-
+	// download with auth
 	if req.Method == "GET" {
 		authToken := req.Header.Get("X-Auth-Token")
 		pubKey := req.Header.Get("X-Public-Key")
@@ -165,17 +165,17 @@ func testHandleParcel(w http.ResponseWriter, req *http.Request) {
 }
 
 func setUp() {
-	
+	// serve test auth challenge
 	http.HandleFunc(
 		"/api/v1/auth",
 		testHandleAuth,
 	)
-	
+	// serve parcel upload
 	http.HandleFunc(
 		"/api/v1/parcels",
 		testHandleUpload,
 	)
-	
+	// serve test parcel data
 	http.HandleFunc(
 		"/api/v1/parcels/",
 		testHandleParcel,
@@ -193,7 +193,7 @@ func TestAll(t *testing.T) {
 	defer tearDown()
 
 	
-
+	// download
 	op, err := getOp("unknown", "blah")
 	assert.Empty(t, op)
 	assert.Error(t, err)
@@ -220,7 +220,13 @@ func TestAll(t *testing.T) {
 	assert.NoError(t, err)
 	assert.NotNil(t, sig)
 
-
+	/* TODO
+	data, err := doDownload("ffff", authToken, key.PubKey, sig)
+	assert.Error(t, err)
+	if err != nil {
+		fmt.Println(err)
+	}
+	*/
 
 	data, err := doDownload("2f2f", authToken, key.PubKey, sig)
 	assert.NoError(t, err)
@@ -229,7 +235,7 @@ func TestAll(t *testing.T) {
 	}
 	assert.Equal(t, testBody, string(data))
 
-
+	// upload
 	op, err = getOp("upload", "ffff")
 	assert.NotEmpty(t, op)
 	assert.NoError(t, err)
@@ -257,7 +263,8 @@ func TestAll(t *testing.T) {
 	id := res.Id
 	assert.Equal(t, testId, id)
 
-
+	// inspect
+	// XXX: inspect operation does not require auth
 	data, err = doInspect("1f1f")
 	assert.NoError(t, err)
 	if err != nil {
@@ -266,7 +273,7 @@ func TestAll(t *testing.T) {
 
 	assert.Equal(t, testId, id)
 
-
+	// remove
 	op, err = getOp("remove", "3f3f")
 	assert.NotEmpty(t, op)
 	assert.NoError(t, err)
