@@ -35,6 +35,15 @@ func (kr *KeyRing) Save() error {
 	return nil
 }
 
+func (kr *KeyRing) GenerateNewKey(username string, seed string, passphrase []byte, encrypt bool) (*KeyEntry, error) {
+	key, err := GenerateKey(seed, passphrase, encrypt)
+	if err != nil {
+		return nil, errors.New("Fail to generate new key.")
+	}
+
+	return key, kr.AddKey(username, key)
+}
+
 func TestGenKey(t *testing.T) {
 	kr, err := GetKeyRing(testfile)
 	assert.NoError(t, err)
