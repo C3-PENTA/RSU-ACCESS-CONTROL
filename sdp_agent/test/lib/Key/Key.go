@@ -100,3 +100,12 @@ func GenerateKey(seed string, passphrase []byte, encrypt bool) (*KeyEntry, error
 
 	return toKeyEntry(privKey, passphrase, encrypt), nil
 }
+
+func ImportKey(keyBytes []byte, passphrase []byte, encrypt bool) (*KeyEntry, error) {
+	privKey, err := setECDSAKey(keyBytes)
+	if err != nil {
+		return nil, err
+	}
+
+	return toKeyEntry(privKey, passphrase, encrypt), nil
+}
