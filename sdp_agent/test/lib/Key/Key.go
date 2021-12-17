@@ -109,3 +109,20 @@ func ImportKey(keyBytes []byte, passphrase []byte, encrypt bool) (*KeyEntry, err
 
 	return toKeyEntry(privKey, passphrase, encrypt), nil
 }
+
+func (key *KeyEntry) Decrypt(passphrase []byte) error {
+	if !key.Encrypted {
+		return errors.New("The key is not encrypted")
+	}
+
+	encKey := sha256.Sum256(passphrase)
+	plainKey, err := xsalsa20symmetric.DecryptSymmetric(key.PrivKey, encKey[:])
+	if err != nil {
+		return err
+	}
+
+	key.Encrypted = false
+	key.PrivKey = plainKey
+
+	return nil
+}
