@@ -56,3 +56,14 @@ func setECDSAKey(keyBytes []byte) (*ecdsa.PrivateKey, error) {
 	}
 	return privKey, nil
 }
+
+func fillInt(b []byte, l int, i *big.Int) {
+	source := i.Bytes()
+	offset := l - len(source)
+	if offset >= 0 {
+		copy(b[offset:], source)
+	} else {
+		// Inappropriate input data, but we do what we can do.
+		copy(b[:l], source)
+	}
+}
