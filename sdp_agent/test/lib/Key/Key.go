@@ -67,3 +67,27 @@ func fillInt(b []byte, l int, i *big.Int) {
 		copy(b[:l], source)
 	}
 }
+
+func toKeyEntry(privKey *ecdsa.PrivateKey, pw []byte, encrypt bool) *KeyEntry {
+	key := new(KeyEntry)
+	b := make([]byte, 32)
+	fillInt(b, 32, privKey.D)
+	if encrypt {
+		encKey := sha256.Sum256(pw)
+		key.PrivKey = xsalsa20symmetric.EncryptSymmetric(b, encKey[:])
+	} else {
+		key.PrivKey = b
+	}
+	key.Encrypted = encrypt
+	// encode to uncompressed form of a public key
+	b = make([]byte, 65)
+	b[0] = 0x04
+	fillInt(b[1:], 32, privKey.PublicKey.X)
+	fillInt(b[33:], 32, privKey.PublicKey.Y)
+	key.PubKey = b
+	// hash it to derive address
+	hash := sha256.Sum256(b)
+	key.Address = strings.ToUpper(hex.EncodeToString(hash[:20]))
+
+	return key
+}
