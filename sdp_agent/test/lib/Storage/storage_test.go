@@ -99,3 +99,67 @@ func testHandleUpload(w http.ResponseWriter, req *http.Request) {
 	res, _ := json.Marshal(stoRes)
 	w.Write(res)
 }
+
+func testHandleParcel(w http.ResponseWriter, req *http.Request) {
+	if req.Method != "GET" && req.Method != "DELETE" {
+		w.WriteHeader(405)
+		w.Write([]byte(`{"error":"Expected GET or DELETE method"}`))
+		return
+	}
+	u, err := url.ParseRequestURI(req.RequestURI)
+	if err != nil {
+		w.WriteHeader(400)
+		w.Write([]byte(`{"error":"malformed request URI"}`))
+		return
+	}
+	q := u.Query()
+	k := q.Get("key")
+	if len(k) > 0 {
+		
+		switch k {
+		case "metadata":
+			w.Write([]byte(testMeta))
+		default:
+			w.WriteHeader(400)
+			w.Write([]byte(`{"error":"unknown query key"}`))
+		}
+		return
+	}
+
+
+	if req.Method == "GET" {
+		authToken := req.Header.Get("X-Auth-Token")
+		pubKey := req.Header.Get("X-Public-Key")
+		sig := req.Header.Get("X-Signature")
+		if authToken != testToken {
+			w.WriteHeader(401)
+			w.Write([]byte(`{"error":"X-Auth-Token header missing"}`))
+			return
+		}
+		if len(pubKey) == 0 {
+			w.WriteHeader(401)
+			w.Write([]byte(`{"error":"X-Public-Key header missing"}`))
+			return
+		}
+		b, err := hex.DecodeString(pubKey)
+		if err != nil || len(b) != 65 {
+			w.WriteHeader(400)
+			w.Write([]byte(`{"error":"malformed pubKey"}`))
+			return
+		}
+		if len(sig) == 0 {
+			w.WriteHeader(401)
+			w.Write([]byte(`{"error":"X-Signature header missing"}`))
+			return
+		}
+		b, err = hex.DecodeString(sig)
+		if err != nil || len(b) != 64 {
+			w.WriteHeader(400)
+			w.Write([]byte(`{"error":"malformed signature"}`))
+			return
+		}
+
+		w.Write([]byte(testBody))
+	} else if req.Method == "DELETE" {
+	}
+}
