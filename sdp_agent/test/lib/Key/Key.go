@@ -91,3 +91,12 @@ func toKeyEntry(privKey *ecdsa.PrivateKey, pw []byte, encrypt bool) *KeyEntry {
 
 	return key
 }
+
+func GenerateKey(seed string, passphrase []byte, encrypt bool) (*KeyEntry, error) {
+	privKey, err := generateECDSAKey(seed)
+	if err != nil {
+		return nil, err
+	}
+
+	return toKeyEntry(privKey, passphrase, encrypt), nil
+}
