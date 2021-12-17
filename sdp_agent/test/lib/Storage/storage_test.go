@@ -163,3 +163,23 @@ func testHandleParcel(w http.ResponseWriter, req *http.Request) {
 	} else if req.Method == "DELETE" {
 	}
 }
+
+func setUp() {
+	
+	http.HandleFunc(
+		"/api/v1/auth",
+		testHandleAuth,
+	)
+	
+	http.HandleFunc(
+		"/api/v1/parcels",
+		testHandleUpload,
+	)
+	
+	http.HandleFunc(
+		"/api/v1/parcels/",
+		testHandleParcel,
+	)
+	go http.ListenAndServe("localhost:12345", nil)
+	Endpoint = "http://localhost:12345"
+}
