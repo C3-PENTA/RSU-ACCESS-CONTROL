@@ -66,3 +66,36 @@ func testHandleAuth(w http.ResponseWriter, req *http.Request) {
 	}
 	w.Write(rsp)
 }
+
+func testHandleUpload(w http.ResponseWriter, req *http.Request) {
+	if req.Method != "POST" {
+		w.WriteHeader(405)
+		w.Write([]byte(`{"error":"Expected POST method"}`))
+		return
+	}
+	body, err := ioutil.ReadAll(req.Body)
+	if err != nil {
+		w.WriteHeader(400)
+		w.Write([]byte(`{"error":"empty request body"}`))
+		return
+	}
+
+	// same as AuthBody but, change each field as a pointer
+	var uploadBody struct {
+		Owner    *string          `json:"owner"`
+		Metadata *json.RawMessage `json:"metadata"`
+		Data     *string          `json:"data"`
+	}
+	err = json.Unmarshal(body, &uploadBody)
+	if err != nil || uploadBody.Owner == nil || uploadBody.Metadata == nil || uploadBody.Data == nil {
+		w.WriteHeader(400)
+		w.Write([]byte(`{"error":"malformed request body"}`))
+		return
+	}
+
+	stoRes := struct {
+		Id string `json:"id"`
+	}{testId}
+	res, _ := json.Marshal(stoRes)
+	w.Write(res)
+}
