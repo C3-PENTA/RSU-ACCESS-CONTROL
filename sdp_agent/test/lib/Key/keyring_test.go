@@ -11,6 +11,11 @@ const (
 	testfile = "test_keyring.json"
 )
 
+type KeyRing struct {
+	filePath string
+	keyList  map[string]KeyEntry // just a cache
+}
+
 
 func TestGenKey(t *testing.T) {
 	kr, err := GetKeyRing(testfile)
