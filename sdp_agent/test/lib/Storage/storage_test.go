@@ -183,3 +183,7 @@ func setUp() {
 	go http.ListenAndServe("localhost:12345", nil)
 	Endpoint = "http://localhost:12345"
 }
+
+func tearDown() {
+	// TODO: kill the HTTP server launched in setUp()
+}
