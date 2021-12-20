@@ -87,3 +87,12 @@ func QueryRequest(target, recipient string) ([]byte, error) {
 		Recipient string `json:"recipient"`
 	}{target, recipient})
 }
+
+func QueryUsage(target, recipient string) ([]byte, error) {
+	target = toUpper(target)
+	recipient = toUpper(recipient)
+	return ABCIQuery("/usage", struct {
+		Target    string `json:"target"`
+		Recipient string `json:"recipient"`
+	}{target, recipient})
+}
