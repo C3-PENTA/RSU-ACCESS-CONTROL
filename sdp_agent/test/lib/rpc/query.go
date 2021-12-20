@@ -35,3 +35,13 @@ func QueryUDCLock(udcID, address string) ([]byte, error) {
 	address = toUpper(address)
 	return ABCIQuery("/udclock/"+udcID, address)
 }
+
+func QueryStake(address string) ([]byte, error) {
+	address = toUpper(address)
+	return ABCIQuery("/stake", address)
+}
+
+func QueryDelegate(address string) ([]byte, error) {
+	address = toUpper(address)
+	return ABCIQuery("/delegate", address)
+}
