@@ -53,3 +53,15 @@ func QueryDraft(draftID string) ([]byte, error) {
 	}
 	return ABCIQuery("/draft", draftIDUint32)
 }
+
+func QueryVote(draftID, address string) ([]byte, error) {
+	draftIDUint32, err := types.ConvIDFromStr(draftID)
+	if err != nil {
+		return nil, err
+	}
+	address = toUpper(address)
+	return ABCIQuery("/vote", struct {
+		DraftID uint32 `json:"draft_id"`
+		Voter   string `json:"voter"`
+	}{draftIDUint32, address})
+}
