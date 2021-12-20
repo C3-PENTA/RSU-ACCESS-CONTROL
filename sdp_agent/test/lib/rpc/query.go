@@ -78,3 +78,12 @@ func QueryParcel(parcelID string) ([]byte, error) {
 	parcelID = toUpper(parcelID)
 	return ABCIQuery("/parcel", parcelID)
 }
+
+func QueryRequest(target, recipient string) ([]byte, error) {
+	target = toUpper(target)
+	recipient = toUpper(recipient)
+	return ABCIQuery("/request", struct {
+		Target    string `json:"target"`
+		Recipient string `json:"recipient"`
+	}{target, recipient})
+}
