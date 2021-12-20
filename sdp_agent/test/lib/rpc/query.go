@@ -73,3 +73,8 @@ func QueryStorage(storageID string) ([]byte, error) {
 	}
 	return ABCIQuery("/Storage", storageIDUint32)
 }
+
+func QueryParcel(parcelID string) ([]byte, error) {
+	parcelID = toUpper(parcelID)
+	return ABCIQuery("/parcel", parcelID)
+}
