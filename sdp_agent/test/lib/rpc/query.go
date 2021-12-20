@@ -30,3 +30,8 @@ func QueryUDC(udcID string) ([]byte, error) {
 	}
 	return ABCIQuery("/udc", udcIDUint32)
 }
+
+func QueryUDCLock(udcID, address string) ([]byte, error) {
+	address = toUpper(address)
+	return ABCIQuery("/udclock/"+udcID, address)
+}
