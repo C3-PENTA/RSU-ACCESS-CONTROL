@@ -32,16 +32,14 @@ func init() {
 		StakeCmd,
 		DelegateCmd,
 		util.LineBreak,
-		DraftCmd,
-		VoteCmd,
+		DraftCmd, //To-DO
+		VoteCmd, //To-DO
 		util.LineBreak,
 		StorageCmd,
 		util.LineBreak,
 		ParcelCmd,
-		RequestCmd,
-		UsageCmd,
+		RequestCmd, //To-DO
+		UsageCmd, //Remove
 		util.LineBreak,
-		DIDCmd,
-		VCCmd,
 	)
 }
