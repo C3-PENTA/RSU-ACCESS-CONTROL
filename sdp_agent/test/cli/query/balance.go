@@ -52,3 +52,8 @@ func balanceFunc(cmd *cobra.Command, args []string) error {
 
 	return nil
 }
+
+func init() {
+	BalanceCmd.PersistentFlags().Uint32("udc", uint32(0), "specify udc id if necessary")
+}
+
