@@ -45,3 +45,11 @@ func QueryDelegate(address string) ([]byte, error) {
 	address = toUpper(address)
 	return ABCIQuery("/delegate", address)
 }
+
+func QueryDraft(draftID string) ([]byte, error) {
+	draftIDUint32, err := types.ConvIDFromStr(draftID)
+	if err != nil {
+		return nil, err
+	}
+	return ABCIQuery("/draft", draftIDUint32)
+}
