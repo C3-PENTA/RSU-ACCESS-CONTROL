@@ -18,3 +18,30 @@ var Cmd = &cobra.Command{
 		return nil
 	},
 }
+
+func init() {
+	Cmd.AddCommand(
+		StatusCmd,
+		AppVersionCmd,
+		AppConfigCmd,
+		util.LineBreak,
+		BalanceCmd,
+		UdcCmd,
+		UdcLockCmd,
+		util.LineBreak,
+		StakeCmd,
+		DelegateCmd,
+		util.LineBreak,
+		DraftCmd,
+		VoteCmd,
+		util.LineBreak,
+		StorageCmd,
+		util.LineBreak,
+		ParcelCmd,
+		RequestCmd,
+		UsageCmd,
+		util.LineBreak,
+		DIDCmd,
+		VCCmd,
+	)
+}
