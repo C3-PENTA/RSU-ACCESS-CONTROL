@@ -71,5 +71,5 @@ func QueryStorage(storageID string) ([]byte, error) {
 	if err != nil {
 		return nil, err
 	}
-	return ABCIQuery("/storage", storageIDUint32)
+	return ABCIQuery("/Storage", storageIDUint32)
 }
