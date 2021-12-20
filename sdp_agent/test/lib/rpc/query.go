@@ -65,3 +65,11 @@ func QueryVote(draftID, address string) ([]byte, error) {
 		Voter   string `json:"voter"`
 	}{draftIDUint32, address})
 }
+
+func QueryStorage(storageID string) ([]byte, error) {
+	storageIDUint32, err := types.ConvIDFromStr(storageID)
+	if err != nil {
+		return nil, err
+	}
+	return ABCIQuery("/storage", storageIDUint32)
+}
